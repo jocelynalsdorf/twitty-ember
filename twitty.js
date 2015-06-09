@@ -1,0 +1,1 @@
+Twitty = Ember.Application.create();

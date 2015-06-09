@@ -1,0 +1,32 @@
+
+<h1>Twitty Hell</h1>
+
+    <ul>
+    {{#each}}
+      <li>{{#link-to 'tweet' this.id}}{{tweetBody}} Hashtags:{{hashtags}}{{/link-to}}</li>
+    {{/each}}  
+    </ul>
+
+<button class="btn"><a href="#" {{action 'sortByTweetDate'}}>Sort By</a></button>
+
+
+{{#if isAdding}}
+
+<form>
+	<div class="form-group">
+	<label for="new-tweet-body">Your Tweet Details</label>
+		{{input id="new-tweet-body" maxlength="141" class="form-control" value=tweetBody}}
+	</div>
+
+	<div class="form-group">
+	<label for="new-date-pick">Enter Today's Date</label>
+		{{input type="date" id="new-date-pick" class="form-control" value=date}}
+	</div>
+<button class="btn btn-primary" {{action 'saveTweet'}}>Save</button>
+</form>
+
+{{else}}
+
+
+<button class="btn btn-primary" {{action 'add'}}>Add Tweet</button>
+{{/if}}

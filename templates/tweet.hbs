@@ -1,0 +1,27 @@
+<h1>{{tweetBody}}</h1>
+
+{{#if isEditing}}
+
+<form>
+	<div class="form-group">
+	<label for="tweet-body">Tweet Details</label>
+		{{input id="tweet-body" maxlength="141" class="form-control" value=tweetBody}}
+	</div>
+
+	<div class="form-group">
+	<label for="date-pick">Date</label>
+		{{input type="date" id="date-pick" class="form-control" value=date}}
+	</div>
+
+	<div class="form-group">
+	<label for="new-hashtags">Hashtags</label>
+		{{input type="text" id="new-hashtag" class="form-control" value=hashtags}}
+	</div>
+<button class="btn btn-primary" {{action 'save'}}>Save</button>
+</form>
+
+{{else}}
+
+<p>{{date}}</p>
+<button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+{{/if}}
